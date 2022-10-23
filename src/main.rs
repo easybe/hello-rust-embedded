@@ -2,10 +2,13 @@
 #![no_main]
 
 use panic_halt as _; // you can put a breakpoint on `rust_begin_unwind` to catch panics
+use stm32f0xx_hal as hal;
 
 use cortex_m_rt::entry;
+use hal::pac;
+use hal::prelude::*;
+use hal::serial::Serial;
 use nb;
-use stm32f0xx_hal::{pac, prelude::*, serial::Serial};
 
 #[entry]
 fn main() -> ! {
